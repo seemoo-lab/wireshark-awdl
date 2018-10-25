@@ -1264,11 +1264,11 @@ wtap_read(wtap *wth, int *err, gchar **err_info, gint64 *data_offset)
 	 */
 	if (wth->rec.rec_type == REC_TYPE_PACKET) {
 		/*
-		 * It makes no sense for the captured data length
-		 * to be bigger than the actual data length.
+		 * In previous Versions wth->phdr.caplen was set to 
+		 * MIN(phdr.len, phdr.caplen) at this point.
+		 * This created issues in packet-corecapture and
+		 * was removed.
 		 */
-		if (wth->rec.rec_header.packet_header.caplen > wth->rec.rec_header.packet_header.len)
-			wth->rec.rec_header.packet_header.caplen = wth->rec.rec_header.packet_header.len;
 
 		/*
 		 * Make sure that it's not WTAP_ENCAP_PER_PACKET, as that

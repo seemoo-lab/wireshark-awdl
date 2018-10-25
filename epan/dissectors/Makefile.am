@@ -404,6 +404,9 @@ DISSECTOR_SRC = \
 	packet-collectd.c	\
 	packet-componentstatus.c	\
 	packet-cops.c		\
+	packet-corecapture.c	\
+	packet-corecapture-awdl.c	\
+	packet-corecapture-ethernet.c	\
 	packet-corosync-totemnet.c	\
 	packet-corosync-totemsrp.c	\
 	packet-cosine.c		\
